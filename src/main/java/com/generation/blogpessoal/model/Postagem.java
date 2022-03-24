@@ -32,37 +32,39 @@ public class Postagem {
 	@UpdateTimestamp
 	private LocalDate data;
 
-	public Long pegaId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void colocaId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String pegaTitulo() {
+	public String getTitulo() {
 		return titulo;
 	}
 
-	public void colocaTitulo(String titulo) {
+	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-	public String pegaTexto() {
+	public String getTexto() {
 		return texto;
 	}
 
-	public void colocaTexto(String texto) {
+	public void setTexto(String texto) {
 		this.texto = texto;
 	}
 
-	public LocalDate pegaData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void colocaData(LocalDate data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
+
+	
 	
 	
 
