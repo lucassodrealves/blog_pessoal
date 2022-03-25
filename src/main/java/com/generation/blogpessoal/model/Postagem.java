@@ -1,7 +1,7 @@
 package com.generation.blogpessoal.model;
 
 import java.time.LocalDate;
-
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -63,6 +63,8 @@ public class Postagem {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+
+	
 
 	
 	
