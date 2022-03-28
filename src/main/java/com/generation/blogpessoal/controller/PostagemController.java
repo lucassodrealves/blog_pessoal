@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.blogpessoal.model.Postagem;
 import com.generation.blogpessoal.repository.PostagemRepository;
+import com.generation.blogpessoal.repository.TemaRepository;
 
 
 
@@ -31,6 +32,9 @@ public class PostagemController {
 
 	@Autowired
 	private PostagemRepository postagemRepository;
+	
+	@Autowired
+	private TemaRepository repositoryTema;
 	
 	@GetMapping
 	public ResponseEntity<List<Postagem>> pegaTudo(){
@@ -67,7 +71,12 @@ public class PostagemController {
 	}
 	@PostMapping
 	public ResponseEntity<Postagem> postItem(@Valid @RequestBody Postagem postagem){
+		if(repositoryTema.existsById(postagem.getTema().getId())) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
+		}else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(postagemRepository.save(postagem));
+			
+		}
 		
 	}
 	
