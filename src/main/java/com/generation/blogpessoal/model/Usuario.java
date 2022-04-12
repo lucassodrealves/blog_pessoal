@@ -61,7 +61,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 		 * CascadeType.ALL -> Ele propaga todas a operações (Inserir, Listar, Atualizar e Apagar)
 		 * de um objeto Pai para um objeto Filho. 
 		 */
-		@OneToMany(mappedBy = "usuario",cascade = CascadeType.REMOVE)
+		@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
 		@JsonIgnoreProperties("usuario")
 		private List<Postagem> postagem;
 		

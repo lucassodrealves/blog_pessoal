@@ -163,7 +163,7 @@ public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLo
 */
 private String gerarBasicToken(String usuario, String senha) {
 	// TODO Auto-generated method stub
-String token=usuario +":"+senha;
+String token=usuario + ":" +senha;
 byte[] tokenBase64=Base64.encodeBase64(token.getBytes(Charset.forName("US-ASCII")));
 return "Basic " + new String(tokenBase64);
 
