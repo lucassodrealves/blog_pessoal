@@ -88,21 +88,19 @@ public class PostagemController extends Postagem {
 				.orElse(ResponseEntity.notFound().build());}*/
 	
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Postagem> putItem(@Valid @RequestBody Postagem postagem, @PathVariable Long id){
-		Optional<Postagem>resposta=postagemRepository.findById(id);
-		if(resposta.isPresent()) {
-			
-			return ResponseEntity.ok(postagemRepository.save(postagem));
-			
-			
-		}
-		else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	@PutMapping
+	public ResponseEntity<Postagem> putItem(@Valid @RequestBody Postagem postagem){
+		
+		 return postagemRepository.findById(postagem.getId())
+		 .map(resposta -> ResponseEntity.ok(postagemRepository.save(postagem)))
+		 .orElse(ResponseEntity.notFound().build());
 		
 		
-		
-	}}
+	}
+	
+	/*public ResponseEntity<Postagem> putItem(@Valid @RequestBody Postagem postagem)
+	 *
+	 * */
 				
 		
 
