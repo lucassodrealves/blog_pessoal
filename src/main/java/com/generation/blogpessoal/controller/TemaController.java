@@ -57,7 +57,7 @@ public ResponseEntity<Tema> postTema(@Valid @RequestBody Tema tema){
 @PutMapping
 public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema){
 	 return   repositoryTema.findById(tema.getId())
-	         .map(resultado -> ResponseEntity.ok(repositoryTema.save(resultado)))
+	         .map(resultado -> ResponseEntity.ok(repositoryTema.save(tema)))
 			 .orElse(ResponseEntity.notFound().build());
 }
 
